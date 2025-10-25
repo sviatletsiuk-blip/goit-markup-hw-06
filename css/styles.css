@@ -1029,6 +1029,11 @@ input[type="checkbox"]:checked+label .checkbox {
     display: none;
 }
 
+
+.mob-menu {
+    display: none;
+}
+
 /* ----------TAB-HEADER---------- */
 
 /* ----------TAB-HERO---------- */
