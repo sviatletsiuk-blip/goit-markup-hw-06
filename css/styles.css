@@ -20,6 +20,10 @@ img {
     height: auto;
 }
 
+.button {
+    cursor: pointer;
+}
+
 .container{
     /* max-width: 1158px;
     padding-left: 15px;
@@ -82,7 +86,7 @@ a {
 }
 
 .header-logo {
-    margin-right: 76px;
+    
     font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 18px;
@@ -109,7 +113,6 @@ a {
 
 .header-menu-list:first-child{
     color: #404bbf;
-    transform: scaleX(1);
 }
 
 .header-menu-link {
@@ -123,15 +126,16 @@ a {
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.header-menu-list .header-menu-item:first-child .header-menu-link {
+.header-menu-link.current {
+    position: relative;
+}
+
+
+.header-menu-item:first-child .header-menu-link {
     color: #404bbf;
 }
 
-.header-menu-link:active {
-    color: #404bbf;
-}
-
-.header-menu-link::after{
+.header-menu-item:first-child .header-menu-link::after {
     content: '';
     position: absolute;
     left: 0;
@@ -140,20 +144,13 @@ a {
     height: 4px;
     background-color: #404bbf;
     border-radius: 2px;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
 }
 
 .header-menu-link:hover,
 .header-menu-link:focus{
     color: #404bbf;
 }
-
-
-.header-menu-link.active::after{
-    transform: scaleX(1);
-}
+ 
 
 .header-contacts {
     font-style: normal;
@@ -168,9 +165,6 @@ a {
 .header-contacts-item {}
 
 .header-contacts-link {
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
     color: var(--main-text-color);
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -195,11 +189,11 @@ a {
 /* ----------MOB-MENU---------- */
 
 .mob-menu {
-    height: 100%;
-    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
     background: #fff;
     padding-top: 24px;
     padding-bottom: 40px;
@@ -209,6 +203,19 @@ a {
     flex-direction: column;
     justify-content: space-between;
     z-index: 100;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.mob-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mob-container {
 }
 
 .mob-open {
@@ -251,6 +258,10 @@ margin-bottom: 40px;
         color: #2e2f42;
 }
 
+.mob-menu-item:first-child .mob-menu-link {
+    color: #404bbf;
+}
+
 .mob-menu-link:focus {
  color: #404bbf;
 }
@@ -271,6 +282,10 @@ margin-bottom: 40px;
         line-height: 120%;
         letter-spacing: 0.02em;
         color: #434455;
+}
+
+.mob-contacts-item:first-child .mob-contacts-link {
+    color: #404bbf;
 }
 
 .mob-contacts-link:focus {
@@ -745,7 +760,7 @@ width: 100%;
 }
 
 .footer-input {
-        border: 1px solid var(--white-color);
+        border: 1px solid #fff;
         border-radius: 4px;
         /* width: 264px;
         height: 40px; */
@@ -763,7 +778,7 @@ width: 100%;
 
 
         &::placeholder {
-            color: #ffffff;
+            color: #fff;
             font-weight: 400;
             font-size: 12px;
             line-height: 200%;
@@ -810,6 +825,16 @@ width: 100%;
     background-color: rgba(46, 47, 66, 0.4);
     z-index: 999;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .modal {
@@ -872,7 +897,7 @@ transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
         text-align: center;
         color: #2e2f42;
         margin-bottom: 16px;
-        margin-top: 72px;
+        margin-top: 32px;
 }
 
 .modal-input {
@@ -915,8 +940,12 @@ border-color: #4D5AE5;
     top: 50%;
     transform: translateY(-50%);
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    fill: #4D5AE5;
+    fill: #2e2f42;
     top: 50%;
+}
+
+.modal-input:focus + .input-icon {
+    fill: #4D5AE5;
 }
 
 .modal-textarea {
@@ -946,16 +975,18 @@ border-color: #4D5AE5;
 .modal-check {
     margin-bottom: 24px;
     display: flex;
-        justify-content: flex-start;
-        align-items: center;
+    justify-content: flex-start;
+    align-items: center;
 }
- 
+
 .privasy-text {
+    display: flex;
+    align-items: center;
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.04em;
-    color: #8e8f99;
-    margin-left: 8px;
+    color: #8e8f99; 
+
 }
 
 .checkbox {
@@ -968,6 +999,8 @@ border-color: #4D5AE5;
     align-items: center;
     justify-content: center;
     fill: transparent;
+    margin-right: 8px;
+    flex-shrink: 0;
 }
 
 input[type="checkbox"]:checked+label .checkbox {
@@ -977,6 +1010,9 @@ input[type="checkbox"]:checked+label .checkbox {
 }
 
 .policy {
+    line-height: 1.33;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
     color: #4d5ae5;
 }
 
@@ -993,6 +1029,11 @@ input[type="checkbox"]:checked+label .checkbox {
     background-color: #4D5AE5;
     border: none;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-button:hover,
+.form-button:focus {
+    background-color: #404bbf;
 }
 
 /* ----------MODAL---------- */
@@ -1023,6 +1064,12 @@ input[type="checkbox"]:checked+label .checkbox {
     display: flex;
     flex-direction: column;
     gap: 12px;   
+}
+
+.header-contacts-link {
+    font-size: 12px;
+    line-height: 117%;
+    letter-spacing: 0.04em;
 }
 
 .menu-open-button {
@@ -1158,7 +1205,7 @@ input[type="checkbox"]:checked+label .checkbox {
     flex-direction: row;
         flex-wrap: wrap;
         gap: 24px;  
-        justify-content: flex-start;
+        justify-content: center;
 }
 
 .footer-info {
@@ -1167,17 +1214,20 @@ input[type="checkbox"]:checked+label .checkbox {
 
 .footer-media {
     align-items: flex-start;
+    margin-bottom: 72px;
 }
 
 .footer-form {
+    display: flex;
     align-items: flex-start;
+    justify-content: start;
 }
 
 .footer-subscribe-form {
-    flex-direction: row;
-    justify-content: center;
-    gap: 24px;
-    
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+        margin-right: 30px;
 }
 
 .footer-input {
@@ -1227,9 +1277,14 @@ input[type="checkbox"]:checked+label .checkbox {
 }
 
 .header-contacts-list {
-    display: flex;
     flex-direction: row;
     gap: 40px;
+}
+
+.header-contacts-link {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
 }
 
 /* ----------DES-HEADER---------- */
