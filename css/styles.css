@@ -1299,7 +1299,7 @@ input[type="checkbox"]:checked+label .checkbox {
 }
 
 .header-menu-item:first-child .header-menu-link {
-    padding-bottom: 26px;
+    padding-bottom: 28px;
 }
 
 .header-contacts-list {
