@@ -63,10 +63,6 @@ a {
 /* ----------HEADER---------- */
 .header {
     background: #fff;
-    /* padding-top: 24px;
-    padding-bottom: 24px; */
-    /* padding-top: 16px;
-    padding-bottom: 16px; */
     border-bottom: 1px solid #e7e9fc;
     box-shadow:
             0px 2px 1px rgba(46, 47, 66, 0.08),
@@ -93,6 +89,7 @@ a {
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: var(--accent-color);
+    padding: 16px 0;
 }
 
 .header-logo-span {
@@ -348,7 +345,7 @@ margin-bottom: 40px;
     padding-top: 72px;
     padding-bottom: 72px;
 
-    @media screen and (min-resolutoin:2x), (-webkit-min-devise-pixel-ratio: 2) {
+    @media screen and (min-resolution:2x), (-webkit-min-devise-pixel-ratio: 2) {
         background-image: linear-gradient(
         rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)
@@ -489,7 +486,6 @@ width: 100%;
     border-radius: 0 0 4px 4px;
         background-color: #fff;
         box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
-        
         width: 100%;
 }
 
@@ -1057,20 +1053,24 @@ input[type="checkbox"]:checked+label .checkbox {
 /* ----------TAB-HEADER---------- */
 
 .header {
-    padding-top: 24px;
-    padding-bottom: 24px;
+
 }
 
 .header-logo {
-  margin-right: 120px;  
+  margin-right: 120px; 
+  padding: 0; 
 }
 
 .header-menu-list {
     display: flex;
 }
 
+.header-menu-link {
+    padding: 24px 0;
+}
+
 .header-menu-item:first-child .header-menu-link {
-    padding-bottom: 20px;
+    padding-bottom: 16px;
 }
 
 .header-contacts-list {
@@ -1105,7 +1105,7 @@ input[type="checkbox"]:checked+label .checkbox {
         background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
         url('../images/people-office-tab.jpg');
 
-        @media screen and (min-resolutoin:2x),
+        @media screen and (min-resolution:2x),
             (-webkit-min-devise-pixel-ratio: 2) {
             background-image: linear-gradient(
             rgba(46, 47, 66, 0.7),
@@ -1176,6 +1176,10 @@ input[type="checkbox"]:checked+label .checkbox {
 .team-list {
     row-gap: 64px;
     column-gap: 24px;
+}
+
+.team-container {
+    width: 552px;
 }
 
 .team-item {
@@ -1277,8 +1281,7 @@ input[type="checkbox"]:checked+label .checkbox {
 /* ----------DES-HEADER---------- */
 
 .header {
-    padding-top: 24px;
-    padding-bottom: 24px;  
+
 }
 
 .header-logo {
@@ -1287,6 +1290,16 @@ input[type="checkbox"]:checked+label .checkbox {
 
 .header-menu-list {
     display: flex;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.header-menu-link {
+    padding: 24px 0;
+}
+
+.header-menu-item:first-child .header-menu-link {
+    padding-bottom: 26px;
 }
 
 .header-contacts-list {
@@ -1311,7 +1324,7 @@ input[type="checkbox"]:checked+label .checkbox {
         background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
         url('../images/people-office.jpg');
 
-        @media screen and (min-resolutoin:2x),
+        @media screen and (min-resolution:2x),
             (-webkit-min-devise-pixel-ratio: 2) {
             background-image: linear-gradient(
              rgba(46, 47, 66, 0.7),
